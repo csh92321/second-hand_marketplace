@@ -1,4 +1,4 @@
-package sean.secondhand_marketplace.persist.entity;
+package sean.secondhand_marketplace.member.entity;
 
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -10,13 +10,13 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Entity
 @Builder
 @Getter
-@ToString
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "MEMBER")
-public class MemberEntity implements UserDetails {
+public class Member implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

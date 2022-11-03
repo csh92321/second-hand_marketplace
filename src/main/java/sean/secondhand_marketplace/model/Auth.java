@@ -1,7 +1,7 @@
 package sean.secondhand_marketplace.model;
 
 import lombok.Data;
-import sean.secondhand_marketplace.persist.entity.MemberEntity;
+import sean.secondhand_marketplace.member.entity.Member;
 
 import java.util.List;
 
@@ -19,8 +19,8 @@ public class Auth {
         private String password;
         private List<String> roles;
 
-        public MemberEntity toEntity() {
-            return MemberEntity.builder()
+        public Member toEntity() {
+            return Member.builder()
                     .username(this.username)
                     .password(this.password)
                     .roles(this.roles)

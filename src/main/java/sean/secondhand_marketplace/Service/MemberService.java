@@ -8,8 +8,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import sean.secondhand_marketplace.model.Auth;
-import sean.secondhand_marketplace.persist.entity.MemberEntity;
-import sean.secondhand_marketplace.persist.MemberRepository;
+import sean.secondhand_marketplace.member.entity.Member;
+import sean.secondhand_marketplace.member.MemberRepository;
 
 @Slf4j
 @Service
@@ -25,7 +25,7 @@ public class MemberService implements UserDetailsService {
                 .orElseThrow(() -> new UsernameNotFoundException("couldn't find user - > " + username));
     }
 
-    public MemberEntity register(Auth.SignUp member) {
+    public Member register(Auth.SignUp member) {
         boolean exists = this.memberRepository.existsByUsername(member.getUsername());
         if (exists) {
             throw new RuntimeException("이미 사용 중인 아이디 입니다.");
@@ -37,7 +37,7 @@ public class MemberService implements UserDetailsService {
         return result;
     }
 
-    public MemberEntity authenticate(Auth.SignIn member) {
+    public Member authenticate(Auth.SignIn member) {
         var user = this.memberRepository.findByUsername(member.getUsername())
                 .orElseThrow(() -> new RuntimeException("존재하지 않는 ID 입니다"));
         if (!this.passwordEncoder.matches(member.getPassword(), user.getPassword())) {
