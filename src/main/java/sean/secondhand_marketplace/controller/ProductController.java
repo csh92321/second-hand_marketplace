@@ -29,8 +29,8 @@ public class ProductController {
         return ResponseEntity.ok(ProductDto.from(productService.updateProduct(id, form)));
     }
 
-    @DeleteMapping
-    public ResponseEntity<?> deleteCompany() {
-        return null;
+    @DeleteMapping("/delete")
+    public void deleteCompany(@RequestParam Long id) {
+        productService.deleteProduct(id);
     }
 }
