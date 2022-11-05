@@ -7,6 +7,8 @@ import sean.secondhand_marketplace.Service.ProductService;
 import sean.secondhand_marketplace.model.ProductDto;
 import sean.secondhand_marketplace.product.AddProductForm;
 
+import java.util.stream.Collectors;
+
 @RestController
 @RequestMapping("/product")
 @RequiredArgsConstructor
@@ -14,9 +16,9 @@ public class ProductController {
 
     private final ProductService productService;
 
-    @GetMapping
-    public ResponseEntity<?> searchProduct() {
-        return null;
+    @GetMapping("/search")
+    public ResponseEntity<?> searchProduct(@RequestParam String productName) {
+        return ResponseEntity.ok(productService.searchProduct(productName));
     }
 
     @PostMapping("/add")

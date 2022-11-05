@@ -13,5 +13,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Transactional
     void deleteAllById(Long id);
 
+    Optional<Product> findByProductNameContains(String productName);
+
 }
 

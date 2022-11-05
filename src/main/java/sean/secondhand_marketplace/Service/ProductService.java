@@ -20,6 +20,10 @@ public class ProductService {
         return productRepository.save(Product.of(seller, form));
     }
 
+    public Optional<Product> searchProduct(String productName) {
+        return productRepository.findByProductNameContains(productName);
+    }
+
     public Product updateProduct(Long id, AddProductForm form) {
 
         Product product = productRepository.findById(id).orElseThrow();
