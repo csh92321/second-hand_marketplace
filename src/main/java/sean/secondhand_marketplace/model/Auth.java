@@ -1,7 +1,7 @@
 package sean.secondhand_marketplace.model;
 
 import lombok.Data;
-import sean.secondhand_marketplace.member.entity.Member;
+import sean.secondhand_marketplace.entity.Member;
 
 import java.util.List;
 

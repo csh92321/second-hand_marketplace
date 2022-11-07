@@ -3,9 +3,9 @@ package sean.secondhand_marketplace.Service;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import sean.secondhand_marketplace.product.AddProductForm;
-import sean.secondhand_marketplace.product.ProductRepository;
-import sean.secondhand_marketplace.product.entity.Product;
+import sean.secondhand_marketplace.model.AddProductForm;
+import sean.secondhand_marketplace.entity.repository.ProductRepository;
+import sean.secondhand_marketplace.entity.Product;
 
 import java.util.Optional;
 

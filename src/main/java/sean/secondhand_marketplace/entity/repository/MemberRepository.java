@@ -1,7 +1,7 @@
-package sean.secondhand_marketplace.member;
+package sean.secondhand_marketplace.entity.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import sean.secondhand_marketplace.member.entity.Member;
+import sean.secondhand_marketplace.entity.Member;
 
 import java.util.Optional;
 

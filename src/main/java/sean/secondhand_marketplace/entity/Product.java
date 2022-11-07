@@ -1,7 +1,7 @@
-package sean.secondhand_marketplace.product.entity;
+package sean.secondhand_marketplace.entity;
 
 import lombok.*;
-import sean.secondhand_marketplace.product.AddProductForm;
+import sean.secondhand_marketplace.model.AddProductForm;
 
 import javax.persistence.*;
 

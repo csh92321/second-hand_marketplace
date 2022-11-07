@@ -1,7 +1,7 @@
 package sean.secondhand_marketplace.model;
 
 import lombok.*;
-import sean.secondhand_marketplace.product.entity.Product;
+import sean.secondhand_marketplace.entity.Product;
 
 @Getter
 @Builder

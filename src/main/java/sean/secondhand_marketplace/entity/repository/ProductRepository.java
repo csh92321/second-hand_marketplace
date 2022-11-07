@@ -1,8 +1,8 @@
-package sean.secondhand_marketplace.product;
+package sean.secondhand_marketplace.entity.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
-import sean.secondhand_marketplace.product.entity.Product;
+import sean.secondhand_marketplace.entity.Product;
 
 import java.util.Optional;
 

@@ -5,9 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import sean.secondhand_marketplace.Service.ProductService;
 import sean.secondhand_marketplace.model.ProductDto;
-import sean.secondhand_marketplace.product.AddProductForm;
-
-import java.util.stream.Collectors;
+import sean.secondhand_marketplace.model.AddProductForm;
 
 @RestController
 @RequestMapping("/product")
@@ -15,11 +13,6 @@ import java.util.stream.Collectors;
 public class ProductController {
 
     private final ProductService productService;
-
-    @GetMapping("/search")
-    public ResponseEntity<?> searchProduct(@RequestParam String productName) {
-        return ResponseEntity.ok(productService.searchProduct(productName));
-    }
 
     @PostMapping("/add")
     public ResponseEntity<ProductDto> addProduct(@RequestParam String seller, @RequestBody AddProductForm form) {
@@ -32,7 +25,12 @@ public class ProductController {
     }
 
     @DeleteMapping("/delete")
-    public void deleteCompany(@RequestParam Long id) {
+    public void deleteProduct(@RequestParam Long id) {
         productService.deleteProduct(id);
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<?> searchProduct(@RequestParam String productName) {
+        return ResponseEntity.ok(productService.searchProduct(productName));
     }
 }

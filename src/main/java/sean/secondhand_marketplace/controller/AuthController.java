@@ -1,4 +1,4 @@
-package sean.secondhand_marketplace.web;
+package sean.secondhand_marketplace.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

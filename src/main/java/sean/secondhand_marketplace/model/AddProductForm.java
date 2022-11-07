@@ -1,4 +1,4 @@
-package sean.secondhand_marketplace.product;
+package sean.secondhand_marketplace.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

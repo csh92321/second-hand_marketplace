@@ -8,8 +8,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import sean.secondhand_marketplace.model.Auth;
-import sean.secondhand_marketplace.member.entity.Member;
-import sean.secondhand_marketplace.member.MemberRepository;
+import sean.secondhand_marketplace.entity.Member;
+import sean.secondhand_marketplace.entity.repository.MemberRepository;
 
 @Slf4j
 @Service

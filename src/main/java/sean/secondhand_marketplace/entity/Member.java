@@ -1,4 +1,4 @@
-package sean.secondhand_marketplace.member.entity;
+package sean.secondhand_marketplace.entity;
 
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
