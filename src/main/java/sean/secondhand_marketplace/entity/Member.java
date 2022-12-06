@@ -1,11 +1,13 @@
 package sean.secondhand_marketplace.entity;
 
 import lombok.*;
+import net.bytebuddy.asm.Advice;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -23,8 +25,12 @@ public class Member implements UserDetails {
     private Long id;
 
     private String username;
-
     private String password;
+    private String email;
+
+    private boolean emailAuthYn;
+    private LocalDateTime emailAuthDt;
+    private String emailAuthKey;
 
     @ElementCollection
     private List<String> roles;
