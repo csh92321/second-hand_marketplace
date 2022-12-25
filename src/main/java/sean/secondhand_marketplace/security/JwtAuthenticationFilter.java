@@ -1,3 +1,8 @@
+/*
+    by 전성환
+    JWT 토큰이 유효한 토큰인지 인증하기 위한 필터.
+ */
+
 package sean.secondhand_marketplace.security;
 
 import lombok.RequiredArgsConstructor;
@@ -40,7 +45,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private String resolveTokenFromRequest(HttpServletRequest request) {
         String token = request.getHeader(TOKEN_HEADER);
 
-        if(!ObjectUtils.isEmpty(token) && token.startsWith(TOKEN_PREFIX)) {
+        if (!ObjectUtils.isEmpty(token) && token.startsWith(TOKEN_PREFIX)) {
             return token.substring(TOKEN_PREFIX.length());
         }
 

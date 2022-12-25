@@ -1,3 +1,8 @@
+/*
+    by 전성환
+    유저 정보로 JWT 토큰을 생성하거나 토큰을 바탕으로 유저 정보를 가져오는 컴포넌트.
+ */
+
 package sean.secondhand_marketplace.security;
 
 import io.jsonwebtoken.Claims;

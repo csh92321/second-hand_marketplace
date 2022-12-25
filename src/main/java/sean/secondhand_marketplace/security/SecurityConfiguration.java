@@ -1,3 +1,8 @@
+/*
+    by 전성환
+    보안 설정.
+ */
+
 package sean.secondhand_marketplace.security;
 
 import lombok.RequiredArgsConstructor;
@@ -10,9 +15,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Slf4j
@@ -20,7 +23,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @RequiredArgsConstructor
-public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private final JwtAuthenticationFilter authenticationFilter;
 
@@ -31,10 +34,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
                 .csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
-                    .authorizeRequests()
-                        .antMatchers("/**/signUp", "/**/signIn").permitAll()
+                .authorizeRequests()
+                .antMatchers("/**/signUp", "/**/signIn").permitAll() //회원가입과 로그인 페이지를 로그인 없이 접근 허가.
                 .and()
-                    .addFilterBefore(this.authenticationFilter, UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(this.authenticationFilter, UsernamePasswordAuthenticationFilter.class);
     }
 
     @Override
@@ -43,8 +46,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
                 .antMatchers("/h2-console/**");
     }
 
-
-    //@PreAuthorize("hasRole('ADMIN')")
 
     @Bean
     public AuthenticationManager authenticationManagerBean() throws Exception {

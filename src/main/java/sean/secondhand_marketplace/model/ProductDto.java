@@ -1,3 +1,8 @@
+/*
+    by 전성환
+    상품 등록을 위한 모델.
+ */
+
 package sean.secondhand_marketplace.model;
 
 import lombok.*;
@@ -13,6 +18,7 @@ public class ProductDto {
 
     private String productName;
     private String seller;
+    private Long sellerId;
     private String type;
     private int price;
     private String state;
@@ -21,6 +27,7 @@ public class ProductDto {
     public static ProductDto from(Product product) {
         return ProductDto.builder()
                 .seller(product.getSeller())
+                .sellerId(product.getSellerId())
                 .productName(product.getProductName())
                 .type(product.getType())
                 .price(product.getPrice())

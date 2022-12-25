@@ -1,7 +1,12 @@
+/*
+    by 전성환
+    회원 가입시 인증을 위한 메일을 보내는 기능을 구현.
+ */
+
+
 package sean.secondhand_marketplace.components;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.mail.javamail.MimeMessagePreparator;
@@ -38,5 +43,5 @@ public class MailComponents {
         }
 
         return result;
-}
+    }
 }

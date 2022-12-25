@@ -1,3 +1,8 @@
+/*
+    by 전성환
+    상품 등록을 위한 폼.
+ */
+
 package sean.secondhand_marketplace.model;
 
 import lombok.AllArgsConstructor;

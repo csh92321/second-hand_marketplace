@@ -1,3 +1,8 @@
+/*
+    by 전성환
+    회원 서비스에 관련된 기능.
+ */
+
 package sean.secondhand_marketplace.Service;
 
 import lombok.AllArgsConstructor;
@@ -25,12 +30,14 @@ public class MemberService implements UserDetailsService {
     private final MemberRepository memberRepository;
     private final MailComponents mailComponents;
 
+    //유저 이름으로 유저 찾기
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return this.memberRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("couldn't find user - > " + username));
     }
 
+    //회원가입
     public Member register(Auth.SignUp member) {
         boolean exists = this.memberRepository.existsByUsername(member.getUsername());
         if (exists) {
@@ -51,6 +58,7 @@ public class MemberService implements UserDetailsService {
         return result;
     }
 
+    //로그인
     public Member authenticate(Auth.SignIn member) {
         var user = this.memberRepository.findByUsername(member.getUsername())
                 .orElseThrow(() -> new RuntimeException("존재하지 않는 ID 입니다"));
@@ -60,6 +68,7 @@ public class MemberService implements UserDetailsService {
         return user;
     }
 
+    //이메일 인증을 실행
     public boolean emailAuth(String uuid) {
 
         Optional<Member> optionalMember = memberRepository.findByEmailAuthKey(uuid);

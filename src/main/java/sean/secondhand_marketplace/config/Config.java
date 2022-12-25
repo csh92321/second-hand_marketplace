@@ -1,3 +1,8 @@
+/*
+    by 전성환
+    필요한 Bean 구현.
+ */
+
 package sean.secondhand_marketplace.config;
 
 import org.apache.commons.collections4.Trie;
@@ -8,11 +13,15 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
-public class Appconfig {
+public class Config {
 
+    //Trie 생성
     @Bean
-    public Trie<String, String> trie() {return new PatriciaTrie<>();}
+    public Trie<String, String> trie() {
+        return new PatriciaTrie<>();
+    }
 
+    //비밀번호 암호화
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

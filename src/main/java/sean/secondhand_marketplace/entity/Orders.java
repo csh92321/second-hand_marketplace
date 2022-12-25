@@ -1,3 +1,8 @@
+/*
+    by 전성환
+    주문 목록 데이터 베이스.
+ */
+
 package sean.secondhand_marketplace.entity;
 
 import lombok.*;
@@ -20,18 +25,25 @@ public class Orders {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    //정확한 구분을 위해 ID 항목 추가
     private String consumer;
+    private Long consumerId;
     private String seller;
+    private Long sellerId;
     private String productName;
+    private Long productId;
 
-    public static Orders of(String consumer, AddOrderForm form) {
+    //주문 빌드 생성
+    public static Orders of(String consumer, Long sellerId, Long consumerId, Long productId, AddOrderForm form) {
         return Orders.builder()
                 .consumer(consumer)
+                .consumerId(consumerId)
                 .seller(form.getSeller())
+                .sellerId(sellerId)
                 .productName(form.getProductName())
+                .productId(productId)
                 .build();
     }
-
 
 
 }
