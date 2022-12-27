@@ -9,6 +9,7 @@ import lombok.*;
 import sean.secondhand_marketplace.model.AddProductForm;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Builder
@@ -29,6 +30,7 @@ public class Product {
     private int price;
     private String state;
     private String context;
+    private LocalDateTime regDt;
 
     //빌드 생성
     public static Product of(String seller, Long sellerId, AddProductForm form) {
@@ -40,6 +42,7 @@ public class Product {
                 .price(form.getPrice())
                 .state(form.getState())
                 .context(form.getContext())
+                .regDt(LocalDateTime.now())
                 .build();
     }
 

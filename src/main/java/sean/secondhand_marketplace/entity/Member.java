@@ -31,6 +31,9 @@ public class Member implements UserDetails {
     private String username;
     private String password;
     private String email;
+    private String phone;
+    private String address;
+    private LocalDateTime regDt;
 
     //이메일 인증 여부
     private boolean emailAuthYn;

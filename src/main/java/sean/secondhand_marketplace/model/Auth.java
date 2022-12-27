@@ -8,6 +8,7 @@ package sean.secondhand_marketplace.model;
 import lombok.Data;
 import sean.secondhand_marketplace.entity.Member;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class Auth {
@@ -23,12 +24,19 @@ public class Auth {
         private String username;
         private String password;
         private String email;
+        private String phone;
+        private String address;
+        private LocalDateTime regDt;
         private List<String> roles;
 
         public Member toEntity(String uuid) {
             return Member.builder()
                     .username(this.username)
                     .password(this.password)
+                    .email(this.email)
+                    .phone(this.phone)
+                    .address(this.address)
+                    .regDt(LocalDateTime.now())
                     .roles(this.roles)
                     .email(this.email)
                     .emailAuthYn(false)
